@@ -1,0 +1,7 @@
+(library
+ (name tracing)
+ (public_name tracing)
+ (libraries tyre)
+)
+
+(env (dev (flags (:standard -warn-error -A))))

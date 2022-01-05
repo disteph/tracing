@@ -1,0 +1,23 @@
+opam-version: "2.0"
+name: "tracing"
+synopsis: "Tracing library"
+description: "Tracing library"
+maintainer: "Stephane Graham-Lengrand <stephane.graham-lengrand@csl.sri.com>"
+authors: "Stephane Graham-Lengrand <stephane.graham-lengrand@csl.sri.com>"
+license: "GPL3"
+homepage: "https://github.com/disteph/tracing"
+bug-reports: "https://github.com/disteph/tracing/issues"
+depends: [
+  "ocaml" {>= "4.11" & < "4.12"}
+  "dune"
+  "ocamlfind"
+]
+build: [
+    "dune" "build"
+]
+install: [
+  "dune" "install"
+]
+remove: [
+  "ocamlfind" "remove" "timer"
+]
