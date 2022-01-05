@@ -58,5 +58,9 @@ val print  : Format.formatter -> string -> int -> ('a, Format.formatter, unit) f
 (** Function with the same type as print, but that does nothing (useful in an if-then-else) *)
 val iprint : Format.formatter -> string -> int -> ('a, Format.formatter, unit) format -> 'a
 
+(** Pauses computation, waiting for user to press RETURN;
+    formatter is used to specify where the primpt should be *)
+val pause : bool -> Format.formatter -> unit
+  
 (** Get the prefix for dumping files *)
 val filedump : unit -> string option
