@@ -11,6 +11,7 @@ depends: [
   "ocaml"
   "dune"
   "ocamlfind"
+  "tyre"
 ]
 build: [
     "dune" "build"
