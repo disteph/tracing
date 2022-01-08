@@ -8,7 +8,7 @@ license: "GPL3"
 homepage: "https://github.com/disteph/tracing"
 bug-reports: "https://github.com/disteph/tracing/issues"
 depends: [
-  "ocaml" {>= "4.11" & < "4.12"}
+  "ocaml"
   "dune"
   "ocamlfind"
 ]
