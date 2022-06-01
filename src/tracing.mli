@@ -60,7 +60,7 @@ val iprint : Format.formatter -> string -> int -> ('a, Format.formatter, unit) f
 
 (** Pauses computation, waiting for user to press RETURN;
     formatter is used to specify where the primpt should be *)
-val pause : bool -> Format.formatter -> unit
+val pause : ?msg:string -> Format.formatter -> unit
   
 (** Get the prefix for dumping files *)
 val filedump : unit -> string option

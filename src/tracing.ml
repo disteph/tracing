@@ -49,8 +49,14 @@ let options = [
     ("-filedump", filedump_option, "Dump file in case of error: if so, give path prefix (default is no file dump)");
   ];;
 
-let pause step fmt =
-  if step then let _ =  Format.fprintf fmt "@]%!@[<v>"; read_line () in () else ()
+let flush = ref false
+
+let pause step ?(msg="Pausing... press enter to continue") fmt =
+  if step then
+    let _ = if !flush then Format.fprintf fmt "@,@[%s@]@]%!@[<v>" msg;
+            read_line ()
+    in ()
+  else ()
 
 let print fmt trace i fs =
   match !routes with
@@ -58,8 +64,9 @@ let print fmt trace i fs =
   | _ ->
      match Tyre.exec (!re) trace with
      | Ok(verbosity, step) when verbosity >= i ->
-        Format.(kfprintf (pause step) fmt) fs
+        Format.(kfprintf (pause step ~msg:("Pausing for "^trace)) fmt) fs
      | _ -> Format.ifprintf fmt fs
 
 let iprint fmt _trace _i fs = Format.ifprintf fmt fs
 
+let pause = pause true
